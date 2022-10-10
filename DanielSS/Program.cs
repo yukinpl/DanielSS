@@ -20,13 +20,21 @@ namespace DanielSS
 
             ApplicationConfiguration.Initialize() ;
 
+            
+            System.Threading.Thread statusThread = new Thread( new ThreadStart( StatusForm ) ) ;
+
+            
+
+            Application.Run( new TrayForm() ) ;
+        }
+
+        static void StatusForm()
+        {
             Form status = new Status() ;
             status.Size = new Size( 40 , 40 ) ;
             status.WindowState = FormWindowState.Normal ;
             status.ShowInTaskbar = false ;
             status.Visible = true ;
-
-            Application.Run( new TrayForm() ) ;
         }
 
 

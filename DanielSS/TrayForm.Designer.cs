@@ -39,7 +39,7 @@
             // notifyIcon
             // 
             this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
-            this.notifyIcon.Text = "DanielSS v2.1";
+            this.notifyIcon.Text = "DanielSS v2.1.1";
             this.notifyIcon.Visible = true;
             this.notifyIcon.DoubleClick += new System.EventHandler(this.notifyIcon_DoubleClick);
             // 
@@ -83,7 +83,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(500, 136);
+            this.ClientSize = new System.Drawing.Size(500, 132);
             this.Controls.Add(this.chkEnableDisplay);
             this.Controls.Add(this.chkEnableFunc);
             this.Controls.Add(this.HideButton);
