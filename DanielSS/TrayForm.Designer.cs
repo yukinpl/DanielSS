@@ -91,6 +91,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Name = "TrayForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.Text = "Menu";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TrayForm_FormClosing);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TrayForm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TrayForm_MouseMove);
