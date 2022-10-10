@@ -29,7 +29,7 @@
 
   
 ### Executeable  
-- https://github.com/yukinpl/DanielSS/tree/main/executeable  
+- https://github.com/yukinpl/DanielSS/tree/master/executeable
   
 ### License
 - MIT License
