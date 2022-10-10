@@ -1,16 +1,25 @@
 ﻿using System.Runtime.InteropServices ;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-
 
 namespace DanielSS
 {
     public partial class Status : Form
     {
+        delegate void TimerDelegate() ;
+
+        private void TimerCallBack( object? status )
+        {
+            BeginInvoke( new TimerDelegate( timerTick ) ) ;
+        }
+
+        private System.Threading.Timer timer ;
+
         public Status()
         {
             InitializeComponent() ;
 
-            timer.Enabled = true ;
+
+            timer = new System.Threading.Timer( TimerCallBack ) ;
+            timer.Change( 0 , 100 ) ;
             HideForm() ;
         }
 
@@ -54,11 +63,10 @@ namespace DanielSS
 
         public static bool isEnable = true ;
 
-        private void timer_Tick( object sender , EventArgs e )
+        private void timerTick()
         {
             if( false == isEnable )
             {
-                HideForm() ;
                 return ;
             }
 
@@ -166,7 +174,7 @@ namespace DanielSS
 
         private void OpenForm()
         {
-            this.Visible = false ;
+            this.Visible = true ;
             this.TopMost = true  ;
             this.ShowInTaskbar = false ;
             

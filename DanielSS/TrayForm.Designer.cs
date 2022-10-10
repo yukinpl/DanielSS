@@ -94,7 +94,8 @@
             // chkEnableDisplay
             // 
             this.chkEnableDisplay.AutoSize = true;
-            this.chkEnableDisplay.Enabled = false;
+            this.chkEnableDisplay.Checked = true;
+            this.chkEnableDisplay.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkEnableDisplay.Location = new System.Drawing.Point(33, 70);
             this.chkEnableDisplay.Name = "chkEnableDisplay";
             this.chkEnableDisplay.Size = new System.Drawing.Size(216, 36);

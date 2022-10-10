@@ -20,13 +20,11 @@ namespace DanielSS
 
             ApplicationConfiguration.Initialize() ;
 
-            /*
             Form status = new Status() ;
             status.Size = new Size( 40 , 40 ) ;
             status.WindowState = FormWindowState.Normal ;
             status.ShowInTaskbar = false ;
             status.Visible = true ;
-            */
 
             Application.Run( new TrayForm() ) ;
         }

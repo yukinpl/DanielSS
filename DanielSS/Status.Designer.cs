@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.lableT = new System.Windows.Forms.Label();
-            this.timer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // lableT
@@ -46,10 +45,6 @@
             this.lableT.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lableT.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lableT_MouseDown);
             this.lableT.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lableT_MouseMove);
-            // 
-            // timer
-            // 
-            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // Status
             // 
@@ -68,6 +63,5 @@
         #endregion
 
         private Label lableT;
-        private System.Windows.Forms.Timer timer;
     }
 }

@@ -14,7 +14,7 @@ namespace DanielSS
             this.Load += LoadTrayIcon ;
 
             chkEnableFunc.Checked = true ;
-            chkEnableDisplay.Checked = false ;
+            chkEnableDisplay.Checked = true ;
 
             HideForm() ;
             Lib.SetRunMode( true ) ;
@@ -40,7 +40,7 @@ namespace DanielSS
             this.WindowState = FormWindowState.Minimized ;
         }
 
-        private void LoadTrayIcon( object sender , EventArgs e )
+        private void LoadTrayIcon( object? sender , EventArgs e )
         {
             notifyIcon.ContextMenuStrip = contextMenuStrip ;
         }
