@@ -16,10 +16,10 @@
 - 이 프로그램을 종료하는 방법은 아이콘을 마우스 오른쪽 버튼으로 눌러서 나타나는 메뉴에서 'EXIT'를 선택합니다.
 
 ### Version
-- Current version is 1.0
-- 현재 버전은 1.0입니다.
+- Current version is 2.1.1
+- 현재 버전은 2.1.1입니다.
 
-### Features to be included in ver 2.0
+### Features included in ver 2.1.1
 - When the program you are using is available for Korean/English IME conversion, the current language status is displayed at the bottom right of the program.
 - It can disable this feature on 'set' screen .
 &nbsp;  
