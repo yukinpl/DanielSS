@@ -31,44 +31,17 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrayForm));
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.setToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HideButton = new System.Windows.Forms.Button();
             this.chkEnableFunc = new System.Windows.Forms.CheckBox();
             this.chkEnableDisplay = new System.Windows.Forms.CheckBox();
-            this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // notifyIcon
             // 
             this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
-            this.notifyIcon.Text = "DanielSS v1.0";
+            this.notifyIcon.Text = "DanielSS v2.0";
             this.notifyIcon.Visible = true;
             this.notifyIcon.DoubleClick += new System.EventHandler(this.notifyIcon_DoubleClick);
-            // 
-            // contextMenuStrip
-            // 
-            this.contextMenuStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.setToolStripMenuItem,
-            this.exitToolStripMenuItem});
-            this.contextMenuStrip.Name = "contextMenuStrip1";
-            this.contextMenuStrip.Size = new System.Drawing.Size(126, 80);
-            // 
-            // setToolStripMenuItem
-            // 
-            this.setToolStripMenuItem.Name = "setToolStripMenuItem";
-            this.setToolStripMenuItem.Size = new System.Drawing.Size(125, 38);
-            this.setToolStripMenuItem.Text = "Set";
-            this.setToolStripMenuItem.Click += new System.EventHandler(this.setToolStripMenuItem_Click);
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(125, 38);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // HideButton
             // 
@@ -83,6 +56,8 @@
             // chkEnableFunc
             // 
             this.chkEnableFunc.AutoSize = true;
+            this.chkEnableFunc.Checked = true;
+            this.chkEnableFunc.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkEnableFunc.Location = new System.Drawing.Point(33, 28);
             this.chkEnableFunc.Name = "chkEnableFunc";
             this.chkEnableFunc.Size = new System.Drawing.Size(345, 36);
@@ -108,7 +83,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(509, 136);
+            this.ClientSize = new System.Drawing.Size(500, 136);
             this.Controls.Add(this.chkEnableDisplay);
             this.Controls.Add(this.chkEnableFunc);
             this.Controls.Add(this.HideButton);
@@ -119,7 +94,6 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TrayForm_FormClosing);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TrayForm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TrayForm_MouseMove);
-            this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -128,9 +102,6 @@
         #endregion
 
         private NotifyIcon notifyIcon;
-        private ContextMenuStrip contextMenuStrip;
-        private ToolStripMenuItem setToolStripMenuItem;
-        private ToolStripMenuItem exitToolStripMenuItem;
         private Button HideButton;
         private CheckBox chkEnableFunc;
         private CheckBox chkEnableDisplay;

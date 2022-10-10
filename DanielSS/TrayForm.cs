@@ -11,8 +11,6 @@ namespace DanielSS
         {
             InitializeComponent() ;
 
-            this.Load += LoadTrayIcon ;
-
             chkEnableFunc.Checked = true ;
             chkEnableDisplay.Checked = true ;
 
@@ -28,8 +26,9 @@ namespace DanielSS
 
         private void OpenForm()
         {
-            this.ShowInTaskbar = true ;
+            this.ShowInTaskbar = false ;
             this.Visible = true ;
+            this.TopMost = true ; 
             this.WindowState = FormWindowState.Normal ;
         }
 
@@ -37,12 +36,8 @@ namespace DanielSS
         {
             this.ShowInTaskbar = false ;
             this.Visible = false ;
+            this.TopMost = false ;
             this.WindowState = FormWindowState.Minimized ;
-        }
-
-        private void LoadTrayIcon( object? sender , EventArgs e )
-        {
-            notifyIcon.ContextMenuStrip = contextMenuStrip ;
         }
 
         private void exitToolStripMenuItem_Click( object sender , EventArgs e )
