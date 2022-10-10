@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.lableT = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -52,7 +51,7 @@
             this.Controls.Add(this.lableT);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Status";
-            this.Text = "Status";
+            this.Text = "IMEStatus";
             this.TopMost = true;
             this.Resize += new System.EventHandler(this.Status_Resize);
             this.ResumeLayout(false);
