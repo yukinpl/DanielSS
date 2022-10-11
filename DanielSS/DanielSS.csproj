@@ -7,7 +7,7 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <AssemblyName>$(MSBuildProjectName)</AssemblyName>
-    <Version>2.2</Version>
+    <Version>2.2.1</Version>
   </PropertyGroup>
 
   <ItemGroup>

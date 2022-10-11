@@ -13,14 +13,21 @@ namespace DanielSS
 
         private static System.Threading.Timer? timer ;
 
-        public static void StopTimer()
+        private void _StopTimer()
         {
             if( timer is null )
             {
                 return ;
             }
 
+            HideForm() ;
             timer.Change( System.Threading.Timeout.Infinite , System.Threading.Timeout.Infinite ) ;
+            
+        }
+
+        public static void StopTimer()
+        {
+            isEnable = false ;
         }
 
         public static void BeginTimer()
@@ -31,6 +38,7 @@ namespace DanielSS
             }
 
             timer.Change( 0 , 500 ) ;
+            isEnable = true ;
         }
 
         public Status()
@@ -87,8 +95,8 @@ namespace DanielSS
         {
             if( false == isEnable )
             {
-                HideForm() ;
-                return ;
+                _StopTimer() ;
+                return ; 
             }
 
             /*
