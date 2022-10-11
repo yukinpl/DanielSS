@@ -174,6 +174,23 @@ namespace DanielSS
             return ( isKorean == true ) ? IMEStatus.Korean : IMEStatus.English ;
         }
 
+        public static bool GetIMEActive()
+        {
+            IMEStatus prevStatus , currStatus ;
+
+            prevStatus = GetIMEStatus() ;
+            SetIMEStatus() ;
+            currStatus = GetIMEStatus() ;
+            SetIMEStatus() ;
+
+            if( prevStatus != currStatus )
+            {
+                return true ;
+            }
+
+            return false  ;
+        }
+
         public static bool SetHook()
         {
             try

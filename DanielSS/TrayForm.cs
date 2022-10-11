@@ -30,6 +30,8 @@ namespace DanielSS
             this.Visible = true ;
             this.TopMost = true ; 
             this.WindowState = FormWindowState.Normal ;
+
+            Status.StopTimer() ;
         }
 
         private void HideForm()
@@ -38,6 +40,8 @@ namespace DanielSS
             this.Visible = false ;
             this.TopMost = false ;
             this.WindowState = FormWindowState.Minimized ;
+
+            Status.BeginTimer() ;
         }
 
         private void exitToolStripMenuItem_Click( object sender , EventArgs e )
@@ -102,6 +106,32 @@ namespace DanielSS
             {
                 Status.isEnable = false ;
             }
+        }
+
+        private void txtMargin_TextChanged( object sender, EventArgs e )
+        {
+            if( 0 == txtMargin.Text.Length )
+            {
+                txtMargin.Text = "0";
+            }
+
+            UInt32 margin = 0 ;
+
+            try
+            {
+                margin = Convert.ToUInt32(txtMargin.Text);
+            }
+            catch ( FormatException )
+            {
+                txtMargin.Text = "0" ;
+                
+            }
+            catch ( OverflowException )
+            {
+                txtMargin.Text = "0" ;
+            }
+
+            Status.margin = ( int ) margin ; 
         }
     }
 }

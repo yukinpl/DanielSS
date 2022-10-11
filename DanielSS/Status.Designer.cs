@@ -38,7 +38,7 @@
             this.lableT.Location = new System.Drawing.Point(4, 5);
             this.lableT.Margin = new System.Windows.Forms.Padding(3);
             this.lableT.Name = "lableT";
-            this.lableT.Size = new System.Drawing.Size(30, 32);
+            this.lableT.Size = new System.Drawing.Size(15, 15);
             this.lableT.TabIndex = 0;
             this.lableT.Text = "A";
             this.lableT.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -47,7 +47,8 @@
             // 
             // Status
             // 
-            this.ClientSize = new System.Drawing.Size(40, 40);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(24, 24);
             this.Controls.Add(this.lableT);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Status";

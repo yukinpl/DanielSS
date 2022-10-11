@@ -11,15 +11,35 @@ namespace DanielSS
             BeginInvoke( new TimerDelegate( timerTick ) ) ;
         }
 
-        private System.Threading.Timer timer ;
+        private static System.Threading.Timer? timer ;
+
+        public static void StopTimer()
+        {
+            if( timer is null )
+            {
+                return ;
+            }
+
+            timer.Change( System.Threading.Timeout.Infinite , System.Threading.Timeout.Infinite ) ;
+        }
+
+        public static void BeginTimer()
+        {
+            if( timer is null )
+            {
+                return;
+            }
+
+            timer.Change( 0 , 500 ) ;
+        }
 
         public Status()
         {
             InitializeComponent() ;
 
-
             timer = new System.Threading.Timer( TimerCallBack ) ;
-            timer.Change( 0 , 100 ) ;
+            BeginTimer() ;
+            
             HideForm() ;
         }
 
@@ -55,20 +75,29 @@ namespace DanielSS
 
         private bool colorToggle = false ;
 
-        private Int16 toggleCnt = 0 ;
-
         private IntPtr prevHandle = IntPtr.Zero ;
 
         private bool isVisible = false ;
 
         public static bool isEnable = true ;
 
+        public static int margin = 0 ;
+
         private void timerTick()
         {
             if( false == isEnable )
             {
+                HideForm() ;
                 return ;
             }
+
+            /*
+            if( false == Lib.GetIMEActive() )
+            {
+                HideForm();
+                return ;
+            }
+            */
 
             Lib.IMEStatus status = Lib.GetIMEStatus() ;
 
@@ -90,7 +119,7 @@ namespace DanielSS
 
                 if( prevHandle != handle || false == isVisible )
                 {
-                    this.Location = new Point( rect.Right - this.Width - 13 , rect.Bottom - this.Height - 13 ) ;
+                    this.Location = new Point( rect.Right - this.Width - margin , rect.Bottom - this.Height - margin ) ;
                     prevHandle = handle ;
                 }
 
@@ -126,22 +155,17 @@ namespace DanielSS
                 HideForm() ;
             }
 
-            ++toggleCnt ;
 
-            if( 5 < toggleCnt )
-            {
-                this.BackColor        = backColor ;
-                this.lableT.ForeColor = textColor ;
-                this.lableT.BackColor = backColor ;
+            this.BackColor        = backColor ;
+            this.lableT.ForeColor = textColor ;
+            this.lableT.BackColor = backColor ;
 
-                colorToggle = !colorToggle ;
-                toggleCnt = 0 ;
-            }
+            colorToggle = !colorToggle ;
         }
 
         private void Status_Resize( object sender , EventArgs e )
         {
-            Size = new Size( 40 , 40 ) ;
+            Size = new Size( 24 , 24 ) ;
         }
 
         private Point mousePoint ;
