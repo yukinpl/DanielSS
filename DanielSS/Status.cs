@@ -4,6 +4,10 @@ namespace DanielSS
 {
     public partial class Status : Form
     {
+
+        [DllImport( "user32.dll" )]
+        static extern IntPtr GetDpiForWindow( IntPtr handle ) ;
+
         delegate void TimerDelegate() ;
 
         private void TimerCallBack( object? status )
@@ -173,7 +177,19 @@ namespace DanielSS
 
         private void Status_Resize( object sender , EventArgs e )
         {
-            Size = new Size( 24 , 24 ) ;
+            IntPtr ptr = GetDpiForWindow( this.Handle ) ;
+
+            if( ptr == IntPtr.Zero )
+            {
+                // ERROR
+            }
+
+            Double rate = ptr.ToInt32() / 96.0 ;
+
+            Int32 baseSize = 20 ;
+            Int32 newSize = ( Int32 )( baseSize * rate ) ;
+
+            Size = new Size( newSize , newSize ) ;
         }
 
         private Point mousePoint ;

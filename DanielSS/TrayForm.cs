@@ -100,10 +100,12 @@ namespace DanielSS
         {
             if( true == chkEnableDisplay.Checked )
             {
+                txtMargin.Enabled = true ;
                 Status.isEnable = true ;
             }
             else
             {
+                txtMargin.Enabled = false ;
                 Status.isEnable = false ;
             }
         }
@@ -132,6 +134,18 @@ namespace DanielSS
             }
 
             Status.margin = ( int ) margin ; 
+        }
+
+        private void TerminateButton_Click( object sender , EventArgs e )
+        {
+            if( true == Application.MessageLoop )
+            {
+                Application.Exit() ;
+            }
+            else
+            {
+                Environment.Exit( 1 ) ;
+            }
         }
     }
 }
