@@ -111,6 +111,7 @@ namespace DanielSS
             {
                 if( pid == p.Id )
                 {
+                    //MessageBox.Show( p.ProcessName )  ;
                     return p.ProcessName;
                 }
             }

@@ -42,16 +42,16 @@
             // notifyIcon
             // 
             this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
-            this.notifyIcon.Text = "DanielSS v2.3.1";
+            this.notifyIcon.Text = "DanielSS v2.3.2";
             this.notifyIcon.Visible = true;
             this.notifyIcon.DoubleClick += new System.EventHandler(this.notifyIcon_DoubleClick);
             // 
             // HideButton
             // 
-            this.HideButton.Location = new System.Drawing.Point(394, 61);
-            this.HideButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.HideButton.Location = new System.Drawing.Point(197, 29);
+            this.HideButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.HideButton.Name = "HideButton";
-            this.HideButton.Size = new System.Drawing.Size(96, 86);
+            this.HideButton.Size = new System.Drawing.Size(48, 40);
             this.HideButton.TabIndex = 5;
             this.HideButton.Text = "Hide";
             this.HideButton.UseVisualStyleBackColor = true;
@@ -62,10 +62,10 @@
             this.chkEnableFunc.AutoSize = true;
             this.chkEnableFunc.Checked = true;
             this.chkEnableFunc.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkEnableFunc.Location = new System.Drawing.Point(19, 29);
-            this.chkEnableFunc.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.chkEnableFunc.Location = new System.Drawing.Point(10, 14);
+            this.chkEnableFunc.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.chkEnableFunc.Name = "chkEnableFunc";
-            this.chkEnableFunc.Size = new System.Drawing.Size(345, 36);
+            this.chkEnableFunc.Size = new System.Drawing.Size(176, 19);
             this.chkEnableFunc.TabIndex = 2;
             this.chkEnableFunc.Text = "Shift + Space 로 한/영 변환";
             this.chkEnableFunc.UseVisualStyleBackColor = true;
@@ -76,10 +76,10 @@
             this.chkEnableDisplay.AutoSize = true;
             this.chkEnableDisplay.Checked = true;
             this.chkEnableDisplay.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkEnableDisplay.Location = new System.Drawing.Point(19, 71);
-            this.chkEnableDisplay.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.chkEnableDisplay.Location = new System.Drawing.Point(10, 33);
+            this.chkEnableDisplay.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.chkEnableDisplay.Name = "chkEnableDisplay";
-            this.chkEnableDisplay.Size = new System.Drawing.Size(216, 36);
+            this.chkEnableDisplay.Size = new System.Drawing.Size(111, 19);
             this.chkEnableDisplay.TabIndex = 3;
             this.chkEnableDisplay.Text = "한/영 상태 표시";
             this.chkEnableDisplay.UseVisualStyleBackColor = true;
@@ -87,23 +87,23 @@
             // 
             // txtMargin
             // 
-            this.txtMargin.Location = new System.Drawing.Point(207, 108);
-            this.txtMargin.Margin = new System.Windows.Forms.Padding(6);
+            this.txtMargin.Location = new System.Drawing.Point(104, 51);
             this.txtMargin.MaxLength = 2;
             this.txtMargin.Name = "txtMargin";
             this.txtMargin.ShortcutsEnabled = false;
-            this.txtMargin.Size = new System.Drawing.Size(58, 39);
+            this.txtMargin.Size = new System.Drawing.Size(31, 23);
             this.txtMargin.TabIndex = 4;
-            this.txtMargin.Text = "0";
+            this.txtMargin.Text = "8";
             this.txtMargin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtMargin.TextChanged += new System.EventHandler(this.txtMargin_TextChanged);
             // 
             // TerminateButton
             // 
             this.TerminateButton.Font = new System.Drawing.Font("맑은 고딕", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TerminateButton.Location = new System.Drawing.Point(394, 9);
+            this.TerminateButton.Location = new System.Drawing.Point(197, 4);
+            this.TerminateButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.TerminateButton.Name = "TerminateButton";
-            this.TerminateButton.Size = new System.Drawing.Size(96, 47);
+            this.TerminateButton.Size = new System.Drawing.Size(48, 22);
             this.TerminateButton.TabIndex = 6;
             this.TerminateButton.Text = "X";
             this.TerminateButton.UseVisualStyleBackColor = true;
@@ -112,17 +112,18 @@
             // labelMargin
             // 
             this.labelMargin.AutoSize = true;
-            this.labelMargin.Location = new System.Drawing.Point(72, 111);
+            this.labelMargin.Location = new System.Drawing.Point(36, 52);
+            this.labelMargin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelMargin.Name = "labelMargin";
-            this.labelMargin.Size = new System.Drawing.Size(135, 32);
+            this.labelMargin.Size = new System.Drawing.Size(68, 15);
             this.labelMargin.TabIndex = 7;
             this.labelMargin.Text = "ㄴMargin : ";
             // 
             // TrayForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 32F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(504, 162);
+            this.ClientSize = new System.Drawing.Size(252, 76);
             this.Controls.Add(this.labelMargin);
             this.Controls.Add(this.TerminateButton);
             this.Controls.Add(this.txtMargin);
@@ -130,7 +131,7 @@
             this.Controls.Add(this.chkEnableFunc);
             this.Controls.Add(this.HideButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.Name = "TrayForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Menu";

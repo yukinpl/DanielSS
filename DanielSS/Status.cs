@@ -8,6 +8,9 @@ namespace DanielSS
         [DllImport( "user32.dll" )]
         static extern IntPtr GetDpiForWindow( IntPtr handle ) ;
 
+        [DllImport("user32.dll")]
+        static extern IntPtr GetParent( IntPtr handle ) ;
+
         delegate void TimerDelegate() ;
 
         private void TimerCallBack( object? status )
@@ -93,7 +96,7 @@ namespace DanielSS
 
         public static bool isEnable = true ;
 
-        public static int margin = 0 ;
+        public static int margin = 8 ;
 
         private void timerTick()
         {
@@ -122,14 +125,22 @@ namespace DanielSS
             Rect rect = new Rect() ;
             GetWindowRect( handle , ref rect ) ;
 
-            if( Lib.IMEStatus.Korean == status )
+            bool isChild = false ; 
+            IntPtr qChild = GetParent( handle ) ;
+            if( IntPtr.Zero != qChild )
+            {
+                isChild = true ;
+            }
+
+
+            if ( Lib.IMEStatus.Korean == status )
             {
                 this.lableT.Text = "H";
 
                 backColor = colorToggle == true ? Color.DeepPink : Color.White;
                 textColor = colorToggle == true ? Color.White : Color.DeepPink;
 
-                if( prevHandle != handle || false == isVisible )
+                if( false == isChild && ( prevHandle != handle || false == isVisible ) )
                 {
                     this.Location = new Point( rect.Right - this.Width - margin , rect.Bottom - this.Height - margin ) ;
                     prevHandle = handle ;
@@ -146,9 +157,9 @@ namespace DanielSS
                 backColor = colorToggle == true ? Color.Black : Color.White ;
                 textColor = colorToggle == true ? Color.White : Color.Black ;
 
-                if( prevHandle != handle || false == isVisible )
+                if( false == isChild && ( prevHandle != handle || false == isVisible ) )
                 {
-                    this.Location = new Point( rect.Right - this.Width - 13 , rect.Bottom - this.Height - 13 ) ;
+                    this.Location = new Point( rect.Right - this.Width - margin , rect.Bottom - this.Height - margin ) ;
                     prevHandle = handle ;
                 }
 
@@ -172,7 +183,9 @@ namespace DanielSS
             this.lableT.ForeColor = textColor ;
             this.lableT.BackColor = backColor ;
 
+            
             colorToggle = !colorToggle ;
+
         }
 
         private void Status_Resize( object sender , EventArgs e )
