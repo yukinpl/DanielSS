@@ -189,6 +189,11 @@ namespace DanielSS
             Int32 baseSize = 20 ;
             Int32 newSize = ( Int32 )( baseSize * rate ) ;
 
+            if( 1 == rate )
+            {
+                newSize = 22 ;
+            }
+
             Size = new Size( newSize , newSize ) ;
         }
 
