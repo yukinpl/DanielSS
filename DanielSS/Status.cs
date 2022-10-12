@@ -4,12 +4,13 @@ namespace DanielSS
 {
     public partial class Status : Form
     {
-
+        #region Loading Dlls
         [DllImport( "user32.dll" )]
         static extern IntPtr GetDpiForWindow( IntPtr handle ) ;
 
         [DllImport("user32.dll")]
         static extern IntPtr GetParent( IntPtr handle ) ;
+        #endregion
 
         delegate void TimerDelegate() ;
 
@@ -119,10 +120,10 @@ namespace DanielSS
             Color backColor ;
             Color textColor ;
 
-            IntPtr handle = IntPtr.Zero;
+            IntPtr handle = IntPtr.Zero ;
             Lib.GetForegroundWindowsHandle( ref handle ) ;
 
-            Rect rect = new Rect() ;
+            Rect rect = new() ;
             GetWindowRect( handle , ref rect ) ;
 
             bool isChild = false ; 
@@ -133,12 +134,12 @@ namespace DanielSS
             }
 
 
-            if ( Lib.IMEStatus.Korean == status )
+            if( Lib.IMEStatus.Korean == status )
             {
                 this.lableT.Text = "H";
 
-                backColor = colorToggle == true ? Color.DeepPink : Color.White;
-                textColor = colorToggle == true ? Color.White : Color.DeepPink;
+                backColor = colorToggle == true ? Color.DeepPink : Color.White ;
+                textColor = colorToggle == true ? Color.White : Color.DeepPink ;
 
                 if( false == isChild && ( prevHandle != handle || false == isVisible ) )
                 {

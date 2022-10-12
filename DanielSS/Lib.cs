@@ -175,6 +175,7 @@ namespace DanielSS
             return ( isKorean == true ) ? IMEStatus.Korean : IMEStatus.English ;
         }
 
+        /*
         public static bool GetIMEActive()
         {
             IMEStatus prevStatus , currStatus ;
@@ -191,13 +192,14 @@ namespace DanielSS
 
             return false  ;
         }
+        */
 
         public static bool SetHook()
         {
             try
             {
                 IntPtr ptr = LoadLibrary( "user32.dll" );
-                keyHook = SetWindowsHookEx( 13 /*WM_KEYBOARD_LL */ , keyProc , ptr , 0 ) ;
+                keyHook = SetWindowsHookEx( 13 /* WM_KEYBOARD_LL */ , keyProc , ptr , 0 ) ;
             }
             catch( System.EntryPointNotFoundException e )
             {
