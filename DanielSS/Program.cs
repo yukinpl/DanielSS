@@ -31,11 +31,24 @@ namespace DanielSS
 
         static bool IsRunning( string processName )
         {
-            bool isRunning = false ;
+            Process [] process = Process.GetProcesses() ;
+            int cnt = 0 ; 
 
-            Mutex mutex = new Mutex( true , processName , out isRunning ) ;
+            foreach( Process p in process )
+            {
+                if( processName == p.ProcessName )
+                {
+                    ++cnt ;
+                }
 
-            return !isRunning ;
+                if( cnt > 1 )
+                {
+                    return true ;
+                }
+                    
+            }
+
+            return false ;
         }
     }
 }
