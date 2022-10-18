@@ -94,49 +94,31 @@ namespace DanielSS
             return ( IntPtr ) 1 ;
         }
 
-        private static string GetForegroundWindowsName()
+        public static bool GetForegroundWindowsHandleAndName( ref IntPtr handle , ref string name )
         {
-            IntPtr hwnd = GetForegroundWindow() ;
+            handle = GetForegroundWindow() ;
 
-            if( IntPtr.Zero == hwnd )
+            if( IntPtr.Zero == handle )
             {
-                return "Unknown" ;
+                return false ;
             }
 
             uint pid;
 
-            GetWindowThreadProcessId( hwnd , out pid ) ;
+            GetWindowThreadProcessId( handle , out pid ) ;
+
+            bool isFound = false ; 
 
             foreach( Process p in Process.GetProcesses() )
             {
                 if( pid == p.Id )
                 {
-                    //MessageBox.Show( p.ProcessName )  ;
-                    return p.ProcessName;
+                    isFound = true ;
+                    name = p.ProcessName ;
                 }
             }
 
-            return "Unknown" ;
-        }
-
-        public static bool GetForegroundWindowsHandle( ref IntPtr handle )
-        {
-            string focused = GetForegroundWindowsName() ;
-            if( "Unknown" == focused )
-            {
-                return false ;
-            }
-
-            
-            Process [] p = Process.GetProcessesByName( focused ) ;
-            if( null == p || 1 > p.Length ) 
-            {
-                return false ;
-            }
-
-            handle = p [ 0 ].MainWindowHandle ;
-
-            return true ;
+            return isFound ; 
         }
 
         private static void SetIMEStatus()
@@ -162,7 +144,8 @@ namespace DanielSS
         public static IMEStatus GetIMEStatus()
         {
             IntPtr hwnd = IntPtr.Zero ;
-            if( false == GetForegroundWindowsHandle( ref hwnd ) )
+            string name = "" ;
+            if( false == GetForegroundWindowsHandleAndName( ref hwnd , ref name ) )
             {
                 return IMEStatus.Unknown ;
             }

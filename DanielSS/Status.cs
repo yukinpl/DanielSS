@@ -121,7 +121,8 @@ namespace DanielSS
             Color textColor ;
 
             IntPtr handle = IntPtr.Zero ;
-            Lib.GetForegroundWindowsHandle( ref handle ) ;
+            string name = "" ;
+            Lib.GetForegroundWindowsHandleAndName( ref handle , ref name ) ;
 
             Rect rect = new() ;
             GetWindowRect( handle , ref rect ) ;
