@@ -21,8 +21,6 @@
 
 ### Features included in ver 2.3.4
 - same name process can be handled  
-&nbsp;
-&nbsp;
 - 동일한 이름의 process에 대해 고려됨  
 
 
