@@ -16,8 +16,15 @@
 - ~~이 프로그램을 종료하는 방법은 아이콘을 마우스 오른쪽 버튼으로 눌러서 나타나는 메뉴에서 'EXIT'를 선택합니다.~~
 
 ### Version
-- Current version is 2.3.3
-- 현재 버전은 2.3.3 입니다.
+- Current version is 2.3.4
+- 현재 버전은 2.3.4 입니다.
+
+### Features included in ver 2.3.4
+- same name process can be handled  
+&nbsp;
+&nbsp;
+- 동일한 이름의 process에 대해 고려됨  
+
 
 ### Features included in ver 2.0
 - When the program you are using is available for Korean/English IME conversion, the current language status is displayed at the bottom right of the program.
