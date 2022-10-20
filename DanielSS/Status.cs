@@ -7,9 +7,6 @@ namespace DanielSS
         #region Loading Dlls
         [DllImport( "user32.dll" )]
         static extern IntPtr GetDpiForWindow( IntPtr handle ) ;
-
-        [DllImport("user32.dll")]
-        static extern IntPtr GetParent( IntPtr handle ) ;
         #endregion
 
         delegate void TimerDelegate() ;
@@ -127,13 +124,6 @@ namespace DanielSS
             Rect rect = new() ;
             GetWindowRect( handle , ref rect ) ;
 
-            bool isChild = false ; 
-            IntPtr qChild = GetParent( handle ) ;
-            if( IntPtr.Zero != qChild )
-            {
-                isChild = true ;
-            }
-
 
             if( Lib.IMEStatus.Korean == status )
             {
@@ -142,7 +132,7 @@ namespace DanielSS
                 backColor = colorToggle == true ? Color.DeepPink : Color.White ;
                 textColor = colorToggle == true ? Color.White : Color.DeepPink ;
 
-                if( false == isChild && ( prevHandle != handle || false == isVisible ) )
+                if( prevHandle != handle || false == isVisible )
                 {
                     this.Location = new Point( rect.Right - this.Width - margin , rect.Bottom - this.Height - margin ) ;
                     prevHandle = handle ;
@@ -159,7 +149,7 @@ namespace DanielSS
                 backColor = colorToggle == true ? Color.Black : Color.White ;
                 textColor = colorToggle == true ? Color.White : Color.Black ;
 
-                if( false == isChild && ( prevHandle != handle || false == isVisible ) )
+                if( prevHandle != handle || false == isVisible )
                 {
                     this.Location = new Point( rect.Right - this.Width - margin , rect.Bottom - this.Height - margin ) ;
                     prevHandle = handle ;
